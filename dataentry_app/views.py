@@ -34,8 +34,9 @@ def import_data(request):
 
         try:
             call_command('importdata', file_path, model_name) #trigger any command from views
+            messages.success(request, 'Data uploaded successfully')
         except Exception as e:
-            raise e 
+            messages.error(request,str(e)) 
 
 
         """

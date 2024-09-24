@@ -19,7 +19,7 @@ def import_data_task(file_path, model_name):
     # send_email_notification(mail_subject, message, [to_email])
     return "Data imported successfully."
 
-
+"""
 @app.task
 def export_data_task(model_name):
     try:
@@ -36,3 +36,4 @@ def export_data_task(model_name):
     # send_email_notification(mail_subject, message, [to_email], attachment=file_path)
 
     return "Export Data task executed successfully."
+"""

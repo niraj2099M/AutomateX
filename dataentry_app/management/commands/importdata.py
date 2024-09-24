@@ -39,6 +39,7 @@ class Command(BaseCommand):
             reader = csv.DictReader(file)
             csv_header = reader.fieldnames
 
+            #error handling for wring selected model
             if csv_header != model_fields:
                 raise DataError(f"CSV file doesnt match with the {model_name} table fields.")
 

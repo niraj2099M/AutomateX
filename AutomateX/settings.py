@@ -13,7 +13,11 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import os
 from django.contrib.messages import constants as messages
+from dotenv import load_dotenv
 
+
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,7 +27,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-y-bh(gn@*5&$aawef3s-byb#%qj7d1!2@q)e3v7ga+%=6yz)^u'
+#SECRET_KEY = 'haca=uv5o3v&vye!it+_7+9qq33!nw!w$b0exg0^qqu@bk=d6x'
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -147,3 +152,22 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CELERY_BROKER_URL = 'redis://localhost:6379/0'  
 #CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+
+
+# SMTP Configuration
+# EMAIL_BACKEND = os.environ.get("EMAIL_BACKEND")
+# EMAIL_HOST = os.environ.get("EMAIL_HOST")
+# EMAIL_PORT = os.environ.get("EMAIL_PORT")
+# EMAIL_USE_TLS = os.environ.get("EMAIL_USE_TLS")
+
+# EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
+# EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
+
+EMAIL_BACKEND = 'smtp.gmail.com'
+#EMAIL_HOST = os.environ.get("EMAIL_HOST")
+EMAIL_PORT = 587
+
+EMAIL_HOST_USER = 'nirubond008@gmail.com'
+EMAIL_HOST_PASSWORD = "hzufwnqeskwpzdew "
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = "Automate with Django <nirubond008@gmail.com>"
